@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8081:86"
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+    driver: local

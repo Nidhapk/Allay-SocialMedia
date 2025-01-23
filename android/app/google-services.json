@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "790350613842",
+    "project_id": "socialmedia-f933c",
+    "storage_bucket": "socialmedia-f933c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790350613842:android:dce8187f02da1bef5efe8b",
+        "android_client_info": {
+          "package_name": "com.nidha.socialmedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdoT-CpRTPYdyfPGpheBp4-3lXfCV6TCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

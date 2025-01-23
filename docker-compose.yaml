@@ -1,0 +1,36 @@
+
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_USER: user  # Create a PostgreSQL user
+      POSTGRES_PASSWORD: userpassword  # Password for the PostgreSQL user
+      POSTGRES_DB: socialmediaapp  # Optional: Create a database named 'socialmediaapp'
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Persist PostgreSQL data using a Docker volume
+    networks:
+      - app-network
+
+  hasura:
+    image: hasura/graphql-engine:v2.30.0
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://user:userpassword@postgres:5432/socialmediaapp
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_ADMIN_SECRET: youradminsecretkey
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+    driver: local  # Persist database data
+
+networks:
+  app-network:
+    driver: bridge  # Use default bridge network
+
